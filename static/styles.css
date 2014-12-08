@@ -6,7 +6,7 @@
   Typography
 --------------------------------*/
 
-body              { font: 200 18px/1.61em 'Open Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; color: #888; }
+body              { font: 200 18px/1.61em 'Open Sans', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; color: #444; }
 a                 { text-decoration: none; color: inherit; border-bottom: 1px solid #ddd; }
 a:hover           { border-bottom: 1px solid #222; }
 em                { font-style: italic; }
@@ -37,13 +37,18 @@ th {
   color: #222;
 }
 
-
+::selection {
+  background: #ffb7b7; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #ffb7b7; /* Gecko Browsers */
+}
 /*--------------------------------
   Layout
 --------------------------------*/
 
 body {
-  background: #eee; 
+  background: #eee;
   margin: 0;
 }
 
@@ -53,6 +58,10 @@ body {
   padding: 60px 9%;
   margin-top: 50px;
   background: #fff
+}
+
+.paginator{
+    text-align:center;
 }
 
 header, section, footer, a {
@@ -67,24 +76,29 @@ header {
 }
 
 header a {
-  border-bottom: 1px solid #fff;
+  border-bottom: 0px;
 }
 
-.byline { 
-  float: left; 
+header a:hover {
+  border-bottom: 0px;
+}
+
+.byline {
+  float: left;
 }
 
 .byline a {
   color: #888;
   text-align: center;
-  font-size: 0.7em;
+  font-size: medium;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   text-align: left;
 }
 
-.downloads { 
-  float: right; 
+.downloads {
+  float: right;
+  font-size: 1.5em;
 }
 
 .downloads a {
@@ -94,6 +108,9 @@ header a {
   font-size: 0.7em;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+}
+a:hover{
+    color:#2196F3;
 }
 
 .downloads a:last-child {
@@ -106,23 +123,30 @@ header hgroup {
   margin-top: 3em;
 }
 
+.article-list{
+    border-bottom:0;
+    padding-bottom:0.5em;
+}
+
 header h1 {
   margin: 0;
   margin-top: 1px;
   padding-top: 1.5em;
-  font-family: 'Playfair Display', "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif; 
+  font-family: 'Playfair Display', "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
   line-height: 1.33em;
   font-style: italic;
   font-size: 5em;
   border-top: 1px solid #222;
 }
 
-.tagline { 
+.tagline {
   margin:0;
   margin-top: 1.25em;
-  font-family: 'Playfair Display', "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif; 
+  font-family: 'Playfair Display', "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
   line-height:1.5em;
-  color: #222;
+  color: #fff;
+  background-color: #2196F3;
+  padding: 0.2em;
 }
 
 section {
@@ -132,19 +156,91 @@ section {
   margin-top: 1px;
 }
 
+.article{
+    padding-top: 2em;
+    padding-bottom: 0em;
+    border-bottom: 0;
+}
+.article-share-tags{
+    padding-top: 4em;
+    border-bottom: 4px solid #222;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: small;
+}
+.end-article-tags{
+    float: right;
+}
+.article-share a{
+    border-bottom:0;
+}
+.entry-title{
+
+    margin: 0px;
+}
+.entry-content{
+    padding-left:0.5em;
+    padding-right:0.5em;
+}
+address{
+    font-style: normal;
+}
+
+.post-info abbr, address, .article-footer abbr, address{
+    color: #fff;
+    background-color: #2196F3;
+    padding: 0.2em;
+}
+
+.post-info a, .article-footer a{
+    border-bottom:0;
+}
+.post-info a:hover, .article-footer a:hover{
+    color: #fff;
+    border-bottom: 1px solid #fff;
+
+}
+
+.post-info{
+    font-size:small;
+}
+#post-list{
+    list-style-type:none;
+    padding: 10px;
+}
+#post-list li{
+    border-bottom: 2px solid #222;
+    margin-bottom: 3em;
+    padding-bottom: 1em;
+}
 section h1:first-child {
   margin-top: 0;
 }
 
+
 footer {
-  margin-top: 1px;
-  padding-top: 3em;
+  margin-top: 5px;
   overflow: auto;
-  text-align: center;
-  font-size: 0.7em;
+  text-align: left;
+  font-size: medium;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  border-top: 1px solid #222;
+}
+footer address{
+    display: inline;
+}
+
+div#content > h1:first-child { display: none; }
+
+.right-footer{
+    float: right;
+    display: inline;
+}
+
+.src{
+    background-color: #263238;
+    color: #ffffff;
+    padding-left: 5px;
 }
 
 @media print {
@@ -160,15 +256,14 @@ footer {
 
 @media screen and (max-width: 650px) {
   body { font-size: 16px; background: #fff; }
-  #wrapper { margin: 0px; padding: 0; }
-  .byline, .downloads {float: none; text-align: center; }
+  #wrapper { margin: 15px; padding: 0; }
+  .downloads, .byline {text-align:center; float:none;}
   .downloads a:first-child {margin-left: 0; }
-  header { padding: 2em; }
-  header hgroup { text-align: center; border: 0; margin: 0; }
+  header hgroup { border: 0; margin: 0; text-align:center; }
   header h1 { font-size: 3em; border: 0; padding: 0; padding-top: 0.5em; }
   .tagline { border: 0; margin-top: 0.5em; }
   header div { border: 0; }
-  section, footer { padding: 2em; }
   footer p { width: 100%; float: none; }
   footer p:last-child { text-align: left; }
+  .article-footer {text-align: center;}
 }

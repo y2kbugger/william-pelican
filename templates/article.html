@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block header %}
+        <hgroup>
+          <h1>{{article.title}}</h1>
+  <footer class="article-footer">
+    {% if article.authors %}
+    <address class="vcard author">
+      By {% for author in article.authors %}
+          <a class="url fn" href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
+        {% endfor %}
+    </address>
+    {% endif %}
+    <abbr class="published" title="{{ article.date.isoformat() }}">
+      {{ article.date.strftime(" on %d.%m.%Y") }}
+    </abbr>
+	{% if article.modified %}
+    <abbr class="modified" title="{{ article.modified.isoformat() }}">
+      {{ article.locale_modified }}
+    </abbr>
+	{% endif %}
+  </footer><!-- /.post-info -->
+        </hgroup>
+  {{ super() }}
+  {% for keyword in article.keywords %}
+    <meta name="keywords" contents="{{keyword}}" />
+  {% endfor %}
+
+  {% for description in article.description %}
+    <meta name="description" contents="{{description}}" />
+  {% endfor %}
+
+  {% for tag in article.tags %}
+    <meta name="tags" contents="{{tag}}" />
+  {% endfor %}
+
+{% endblock %}
+
+{% block content %}
+<section id="content" class="body article">
+  <div class="entry-content">
+    {{ article.content }}
+  </div><!-- /.entry-content -->
+  <div class="article-share-tags">
+  <div class="end-article-tags">
+  {% if article.tags|length > 0 %}
+      {% if article.tags|length == 1 %}
+      <i class="fa fa-tag"></i>
+      {% else %}
+      <i class="fa fa-tags"></i>
+      {% endif %}
+      {% for tag in article.tags%}
+      <a href="{{SITEURL}}/{{tag.url}}">{{tag}}</a>
+      {% endfor %}
+  {% endif %}
+  </div>
+  <div class='article-share'>
+      share -
+      {% for service, service_url, text, url in SHARE %}
+      <a target="_blank" href="{{service_url}}{{text}}{{article.title}}{{url}}{{SITEURL}}/{{article.url}}"><i class='fa fa-{{service}}'></i></a>
+      {% endfor %}
+  </div>
+  </div>
+</section>
+{% endblock %}
