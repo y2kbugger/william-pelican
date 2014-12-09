@@ -50,6 +50,7 @@ th {
 body {
   background: #eee;
   margin: 0;
+  text-align: justify;
 }
 
 #wrapper {
@@ -94,6 +95,20 @@ header a:hover {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   text-align: left;
+}
+
+.neighbors{
+    margin: 0.2em;
+    margin-top: 2em;
+    font-size:medium;
+    font-family: 'Playfair Display', "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
+}
+.neighbors i{
+    margin-left:0.2em;
+    margin-right: 0.2em;
+}
+.neighbors a{
+    border-bottom:0;
 }
 
 .downloads {
@@ -217,10 +232,19 @@ section h1:first-child {
   margin-top: 0;
 }
 
+figure{
+    margin:0.4em;
+}
+figure img{
+    width:100%;
+}
+figcaption{
+    text-align:center;
+}
 
 footer {
   margin-top: 5px;
-  overflow: auto;
+  overflow: hidden;
   text-align: left;
   font-size: medium;
   text-transform: uppercase;
