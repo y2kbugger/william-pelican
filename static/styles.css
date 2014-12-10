@@ -36,6 +36,7 @@ th {
   text-align: center;
   color: #222;
 }
+dt{ font-weight:bold;}
 
 ::selection {
   background: #ffb7b7; /* WebKit/Blink Browsers */
