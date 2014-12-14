@@ -19,7 +19,7 @@ SHARE = (('twitter', 'http://twitter.com/share', '?text=', '&amp;url='),
          ('google-plus', 'http://plus.google.com/share', '?text=', '&amp;url='))
 ```
 
-- [Disqus](http://www.disqus.com) integration using setting the variable
+- [Disqus](http://www.disqus.com) integration setting the variable
 ```
 DISQUS_SITENAME = "your_site_name"
 ```
