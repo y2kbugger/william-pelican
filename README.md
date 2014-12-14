@@ -1,7 +1,24 @@
-#Martin theme
+#Martin theme for Pelican static site generator
+
+This is a port of the Martin theme by Allison House to work with the [Pelican static site generator](http://blog.getpelican.com/)
+
+It supports the the following plugins or variables
+
+- [Neighbor Article Plugin](https://github.com/getpelican/pelican-plugins/tree/master/neighbors)
+- global variable GA_ID for your Google Analytics ID.
+- [font awesome](http://fortawesome.github.io/Font-Awesome/) for social and share links specified by global variables and the name of the font awesome icon after "fa-".
+e.g.:
+```
+# Social widget
+SOCIAL = (('github', 'http://github.com/username),
+          ('twitter', 'http://twitter.com/username),
+          ('instagram', 'http://instagram.com/username))
+
+SHARE = (('twitter', 'http://twitter.com/share', '?text=', '&amp;url='),
+         ('facebook', 'http://facebook.com/sharer.php', '?t=', '&amp;u='),
+         ('google-plus', 'http://plus.google.com/share', '?text=', '&amp;url='))
+```
 
 Showcase your project in style with Martin, a bold, timeless theme for GitHub pages! Named for the punchcutter William Martin, apprentice to John Baskerville. This work is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/). Check out the [live demo](http://house.github.io/martin/).
 
 ![Martin theme preview](https://f.cloud.github.com/assets/306877/1145554/bddcfe0a-1e1d-11e3-998c-171657eb1054.png)
-
-This version is tweaked to work with the pelican static site generator.
